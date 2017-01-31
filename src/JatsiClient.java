@@ -127,16 +127,17 @@ public class JatsiClient {
             round++;
             if(round == 5){
                 String winner = "";
-                if(d.getPoints(details) > d.getOtherPlayerPoints(details)){
+                if(d.getTotPoints(details) > d.getOtherPlayerTotPoints(details)){
                     winner = name;
-                } else if(d.getPoints(details) < d.getOtherPlayerPoints(details)){
+                } else if(d.getTotPoints(details) < d.getOtherPlayerTotPoints(details)){
                     winner = otherName;
-                } else if (d.getPoints(details) == d.getOtherPlayerPoints(details)){
+                } else if (d.getTotPoints(details) == d.getOtherPlayerTotPoints(details)){
                     winner = "Both! Even game!";
                 } else {
                     winner = "Huops... there has been some mistake.. Sorry :/";
                 }
-                System.out.print("THE WINNER IS...." + winner);
+                System.out.print("THE WINNER IS.... " + winner + "!!!");
+                System.exit(0);
             }
         } catch (RemoteException ex) {
             ex.printStackTrace();
